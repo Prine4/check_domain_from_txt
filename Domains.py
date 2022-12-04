@@ -1,7 +1,8 @@
 import requests
+import asyncio
 
 
-class domens:
+class Domens:
 
     async def check_domens(ras):
         for ele in ras:
@@ -13,10 +14,10 @@ class domens:
                 pass
 
     def geting_domens_from_file():
-        file = open('domenki.txt', 'r').readlines()
+        file = open('d1', 'r').readlines()
         ras = []
         for line in file:
             ras.append(line.strip())
         return ras
 
-    await check_domens(geting_domens_from_file())
+    asyncio.run(check_domens(geting_domens_from_file()))
