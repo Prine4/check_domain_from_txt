@@ -1,16 +1,15 @@
 import requests
-import asyncio
 
 
 class Domens:
 
-    async def check_domens(ras):
+    def check_domens(ras):
         for ele in ras:
             try:
-                response = await requests.get('http://' + ele)
+                response = requests.get('http://' + ele)
                 if response.status_code == 200:
                     print(ele)
-            except:
+            except OSError:
                 pass
 
     def geting_domens_from_file():
@@ -20,4 +19,4 @@ class Domens:
             ras.append(line.strip())
         return ras
 
-    asyncio.run(check_domens(geting_domens_from_file()))
+    check_domens(geting_domens_from_file())
