@@ -8,8 +8,8 @@ class Domens:
         for ele in ras:
             try:
                 response = requests.get('http://' + ele)
-                if response.status_code == 200:
-                    file.write(ele + ',')
+                if response.status_code == 200 or 302:
+                    file.write(ele + ',\n')
                     print(ele)
             except OSError:
                 pass
